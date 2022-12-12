@@ -1,0 +1,109 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5125,
+      "count": 900000,
+      "max": [
+        149999
+      ],
+      "min": [
+        0
+      ],
+      "normalized": false,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 150000,
+      "max": [
+        -3.2782554626464844e-06,
+        -0.004879742860794067,
+        0.10680997371673584
+      ],
+      "min": [
+        -1.0000033378601074,
+        -0.9951201677322388,
+        -1.1576776504516602
+      ],
+      "normalized": false,
+      "type": "VEC3"
+    }
+  ],
+  "asset": {
+    "generator": "pygltflib@v1.15.3",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 3600000,
+      "byteOffset": 0,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1800000,
+      "byteOffset": 3600000,
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 5400000,
+      "uri": "knot_2.bin"
+    }
+  ],
+  "materials": [
+    {
+      "alphaCutoff": 0.5,
+      "alphaMode": "MASK",
+      "doubleSided": true,
+      "emissiveFactor": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallicFactor": 1.0,
+        "roughnessFactor": 1.0
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 1
+          },
+          "indices": 0,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}
