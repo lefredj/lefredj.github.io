@@ -57,6 +57,28 @@
       "uri": "model.bin"
     }
   ],
+  "materials": [
+    {
+      "alphaCutoff": 0.5,
+      "alphaMode": "MASK",
+      "doubleSided": true,
+      "emissiveFactor": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallicFactor": 1.0,
+        "roughnessFactor": 1.0
+      }
+    }
+  ],
   "meshes": [
     {
       "primitives": [
@@ -65,6 +87,7 @@
             "POSITION": 1
           },
           "indices": 0,
+          "material": 0,
           "mode": 4
         }
       ]
