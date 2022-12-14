@@ -1,0 +1,109 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5125,
+      "count": 24,
+      "max": [
+        5
+      ],
+      "min": [
+        0
+      ],
+      "normalized": false,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 6,
+      "max": [
+        0.34732919931411743,
+        0.2876759171485901,
+        0.34732919931411743
+      ],
+      "min": [
+        -1.3473291397094727,
+        -1.2876758575439453,
+        -1.3473291397094727
+      ],
+      "normalized": false,
+      "type": "VEC3"
+    }
+  ],
+  "asset": {
+    "generator": "pygltflib@v1.15.3",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 96,
+      "byteOffset": 0,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 72,
+      "byteOffset": 96,
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 168,
+      "uri": "octa.bin"
+    }
+  ],
+  "materials": [
+    {
+      "alphaCutoff": 0.5,
+      "alphaMode": "MASK",
+      "doubleSided": true,
+      "emissiveFactor": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.7647058823529411,
+          0.6470588235294118,
+          0.3607843137254902,
+          1.0
+        ],
+        "metallicFactor": 1.0,
+        "roughnessFactor": 1.0
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 1
+          },
+          "indices": 0,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}
