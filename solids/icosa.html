@@ -1,0 +1,33 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image.prod.js"></script>
+    <script src="../js/aframe-master.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image-aframe.prod.js"></script>
+  </head>
+  <body>
+    <a-scene mindar-image="imageTargetSrc: assets/targets.mind; maxTrack: 5" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-assets>
+	<a-asset-item id="icosa" src="assets/icosa.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false">
+        <a-entity
+          position="0 0 -1.5"
+          text="align: center;
+                width: 6;
+                wrapCount: 100;
+                color: black;
+                value: Click or tap to start video"
+          hide-on-play="#vid">
+        </a-entity>
+      </a-camera>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+	<a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="0.5 0.5 0.5" src="#icosa" >
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
