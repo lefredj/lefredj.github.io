@@ -1,0 +1,115 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image.prod.js"></script>
+    <script src="../js/aframe-master.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image-aframe.prod.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const sceneEl = document.querySelector('a-scene');
+        const arSystem = sceneEl.systems["mindar-image-system"];
+        const tetraTarget = document.querySelector('#tetra-target');
+        const cubeTarget = document.querySelector('#cube-target');
+        const octaTarget = document.querySelector('#octa-target');
+        const dodecaTarget = document.querySelector('#dodeca-target');
+        const icosaTarget = document.querySelector('#icosa-target');
+        // arReady event triggered when ready
+        sceneEl.addEventListener("arReady", (event) => {
+          // console.log("MindAR is ready")
+        });
+        // arError event triggered when something went wrong. Mostly browser compatbility issue
+        sceneEl.addEventListener("arError", (event) => {
+          // console.log("MindAR failed to start")
+        });
+        // detect target found
+        tetraTarget.addEventListener("targetFound", event => {
+          console.log("target tetra found");
+        });
+        // detect target lost
+        tetraTarget.addEventListener("targetLost", event => {
+          console.log("target tetra lost");
+        });
+        cubeTarget.addEventListener("targetFound", event => {
+          console.log("target cube found");
+        });
+        // detect target lost
+        cubeTarget.addEventListener("targetLost", event => {
+          console.log("target cube lost");
+        });
+        octaTarget.addEventListener("targetFound", event => {
+          console.log("target octa found");
+        });
+        // detect target lost
+        octaTarget.addEventListener("targetLost", event => {
+          console.log("target octa lost");
+        });
+        dodecaTarget.addEventListener("targetFound", event => {
+          console.log("target dodeca found");
+        });
+        // detect target lost
+        dodecaTarget.addEventListener("targetLost", event => {
+          console.log("target dodeca lost");
+        });
+        icosaTarget.addEventListener("targetFound", event => {
+          console.log("target icosa found");
+        });
+        // detect target lost
+        icosaTarget.addEventListener("targetLost", event => {
+          console.log("target icosa lost");
+        });
+      });
+    </script>
+  
+  
+  </head>
+  <body>
+    <a-scene mindar-image="imageTargetSrc: assets/targets.mind; maxTrack: 5;filterMinCF:0.1; filterBeta: 10" 
+              color-space="sRGB" 
+            renderer="colorManagement: true, physicallyCorrectLights" 
+            vr-mode-ui="enabled: false" 
+            device-orientation-permission-ui="enabled: false">
+      <a-assets>
+	<a-asset-item id="tetra" src="assets/tetra.gltf"></a-asset-item>
+	<a-asset-item id="cube" src="assets/cube.gltf"></a-asset-item>
+	<a-asset-item id="octa" src="assets/octa.gltf"></a-asset-item>
+	<a-asset-item id="dodeca" src="assets/dodeca.gltf"></a-asset-item>
+	<a-asset-item id="icosa" src="assets/icosa.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false">
+        <a-entity
+          position="0 0 -1.5"
+          text="align: center;
+                width: 6;
+                wrapCount: 100;
+                color: black;
+                value: Click or tap to start video"
+          hide-on-play="#vid">
+        </a-entity>
+      </a-camera>
+
+      <a-entity id="tetra-target" mindar-image-target="targetIndex: 0">
+	      <a-gltf-model rotation="0 0 0 " position="0 0  0.5" scale="0.5 0.5 0.5" src="#tetra"
+		      animation="property: rotation; to: 0 0 360; dur: 30000; easing: linear; loop: true">
+      </a-entity>
+      <a-entity id="cube-target" mindar-image-target="targetIndex: 1">
+	      <a-gltf-model rotation="0 0 0 " position="0 0  0.5" scale="0.5 0.5 0.5" src="#cube"
+		      animation="property: rotation; to: 0 0 360; dur: 30000; easing: linear; loop: true">
+      </a-entity>
+      <a-entity id="octa-target" mindar-image-target="targetIndex: 2">
+	      <a-gltf-model rotation="0 0 0 " position="0 0  0.5" scale="0.5 0.5 0.5" src="#octa"
+		      animation="property: rotation; to: 0 0 360; dur: 30000; easing: linear; loop: true">
+      </a-entity>
+      <a-entity id="dodeca-target" mindar-image-target="targetIndex: 3">
+	      <a-gltf-model rotation="0 0 0 " position="0 0  0.5" scale="0.5 0.5 0.5" src="#dodeca"
+		      animation="property: rotation; to: 0 0 360; dur: 30000; easing: linear; loop: true">
+      </a-entity>
+      <a-entity id="icosa-target" mindar-image-target="targetIndex: 4">
+	      <a-gltf-model rotation="0 0 0 " position="0 0  0.5" scale="0.5 0.5 0.5" src="#icosa"
+		      animation="property: rotation; to: 0 0 360; dur: 30000; easing: linear; loop: true">
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
