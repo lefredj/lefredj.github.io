@@ -1,0 +1,88 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image.prod.js"></script>
+    <script src="../js/aframe-master.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image-aframe.prod.js"></script>
+  </head>
+  <body>
+    <a-scene mindar-image="imageTargetSrc: assets/targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-assets>
+	<a-asset-item id="gltfModel0" src="assets/model0.gltf"></a-asset-item>
+	<a-asset-item id="gltfModel1" src="assets/model1.gltf"></a-asset-item>
+	<a-asset-item id="gltfModel2" src="assets/model2.gltf"></a-asset-item>
+	<a-asset-item id="gltfModel3" src="assets/model3.gltf"></a-asset-item>
+	<a-asset-item id="gltfModel4" src="assets/model4.gltf"></a-asset-item>
+	<a-asset-item id="gltfModel5" src="assets/model5.gltf"></a-asset-item>
+	<a-asset-item id="gltfModel6" src="assets/model6.gltf"></a-asset-item>
+	<a-asset-item id="gltfModel7" src="assets/model7.gltf"></a-asset-item>
+	<a-asset-item id="gltfModel8" src="assets/model8.gltf"></a-asset-item>
+	<a-asset-item id="gltfModel9" src="assets/model9.gltf"></a-asset-item>
+	<a-asset-item id="gltfModel10" src="assets/model10.gltf"></a-asset-item>
+	<a-asset-item id="gltfModel11" src="assets/model11.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false">
+        <a-entity
+          position="0 0 -1.5"
+          text="align: center;
+                width: 6;
+                wrapCount: 100;
+                color: black;
+                value: Click or tap to start video"
+          hide-on-play="#vid">
+        </a-entity>
+      </a-camera>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+	<a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="1 1 1" src="#gltfModel0"
+		      animation="property: rotation; to: 0 0 360; dur: 10000; easing: linear; loop: true"
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 1">
+	<a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="1 1 1" src="#gltfModel1"
+		      animation="property: rotation; to: 0 0 360; dur: 10000; easing: linear; loop: true"
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 2">
+	<a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="1 1 1" src="#gltfModel2"
+		      animation="property: rotation; to: 0 0 360; dur: 10000; easing: linear; loop: true"
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 3">
+	<a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="1 1 1" src="#gltfModel3"
+		      animation="property: rotation; to: 0 0 360; dur: 10000; easing: linear; loop: true"
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 4">
+	<a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="1 1 1" src="#gltfModel4"
+		      animation="property: rotation; to: 0 0 360; dur: 10000; easing: linear; loop: true"
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 5">
+	<a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="1 1 1" src="#gltfModel5"
+		      animation="property: rotation; to: 0 0 360; dur: 10000; easing: linear; loop: true"
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 6">
+	<a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="1 1 1" src="#gltfModel6"
+		      animation="property: rotation; to: 0 0 360; dur: 10000; easing: linear; loop: true"
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 7">
+	<a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="1 1 1" src="#gltfModel7"
+		      animation="property: rotation; to: 0 0 360; dur: 10000; easing: linear; loop: true"
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 8">
+	<a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="1 1 1" src="#gltfModel8"
+		      animation="property: rotation; to: 0 0 360; dur: 10000; easing: linear; loop: true"
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 9">
+	<a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="1 1 1" src="#gltfModel9"
+		      animation="property: rotation; to: 0 0 360; dur: 10000; easing: linear; loop: true"
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 10">
+	<a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="1 1 1" src="#gltfModel10"
+		      animation="property: rotation; to: 0 0 360; dur: 10000; easing: linear; loop: true"
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 11">
+	<a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="1 1 1" src="#gltfModel11"
+		      animation="property: rotation; to: 0 0 360; dur: 10000; easing: linear; loop: true"
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
