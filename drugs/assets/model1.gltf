@@ -4,9 +4,9 @@
       "bufferView": 0,
       "byteOffset": 0,
       "componentType": 5125,
-      "count": 36,
+      "count": 9600,
       "max": [
-        7
+        1619
       ],
       "min": [
         0
@@ -18,16 +18,80 @@
       "bufferView": 1,
       "byteOffset": 0,
       "componentType": 5126,
-      "count": 8,
+      "count": 1620,
       "max": [
-        0.4224499464035034,
-        0.45121341943740845,
-        0.3810020685195923
+        0.28494447469711304,
+        -0.21884745359420776,
+        -0.4097183644771576
       ],
       "min": [
-        -1.4224499464035034,
-        -1.4512133598327637,
-        -1.3810020685195923
+        -0.6788931488990784,
+        -0.9145268201828003,
+        -0.9741215109825134
+      ],
+      "normalized": false,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 0,
+      "componentType": 5125,
+      "count": 13440,
+      "max": [
+        2267
+      ],
+      "min": [
+        0
+      ],
+      "normalized": false,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 2268,
+      "max": [
+        0.39061248302459717,
+        -0.14117661118507385,
+        -0.3028327226638794
+      ],
+      "min": [
+        -0.7622674703598022,
+        -0.9703521728515625,
+        -1.0837076902389526
+      ],
+      "normalized": false,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 4,
+      "byteOffset": 0,
+      "componentType": 5125,
+      "count": 1920,
+      "max": [
+        323
+      ],
+      "min": [
+        0
+      ],
+      "normalized": false,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 5,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 324,
+      "max": [
+        0.15910381078720093,
+        -0.5502585768699646,
+        -0.4841949939727783
+      ],
+      "min": [
+        -0.5128150582313538,
+        -0.8814525008201599,
+        -0.7179216146469116
       ],
       "normalized": false,
       "type": "VEC3"
@@ -40,21 +104,45 @@
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 144,
+      "byteLength": 38400,
       "byteOffset": 0,
       "target": 34963
     },
     {
       "buffer": 0,
-      "byteLength": 96,
-      "byteOffset": 144,
+      "byteLength": 19440,
+      "byteOffset": 38400,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 53760,
+      "byteOffset": 57840,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 27216,
+      "byteOffset": 111600,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 7680,
+      "byteOffset": 138816,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 3888,
+      "byteOffset": 146496,
       "target": 34962
     }
   ],
   "buffers": [
     {
-      "byteLength": 240,
-      "uri": "cube.bin"
+      "byteLength": 150384,
+      "uri": "model1.bin"
     }
   ],
   "materials": [
@@ -69,9 +157,49 @@
       ],
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.17647058823529413,
-          0.7372549019607844,
-          0.5803921568627451,
+          0.1,
+          0.1,
+          0.1,
+          1.0
+        ],
+        "metallicFactor": 1.0,
+        "roughnessFactor": 1.0
+      }
+    },
+    {
+      "alphaCutoff": 0.5,
+      "alphaMode": "MASK",
+      "doubleSided": true,
+      "emissiveFactor": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.5,
+          0.5,
+          0.5,
+          1.0
+        ],
+        "metallicFactor": 1.0,
+        "roughnessFactor": 1.0
+      }
+    },
+    {
+      "alphaCutoff": 0.5,
+      "alphaMode": "MASK",
+      "doubleSided": true,
+      "emissiveFactor": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0,
+          0.0,
+          1.0,
           1.0
         ],
         "metallicFactor": 1.0,
@@ -91,18 +219,50 @@
           "mode": 4
         }
       ]
+    },
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 3
+          },
+          "indices": 2,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 5
+          },
+          "indices": 4,
+          "material": 2,
+          "mode": 4
+        }
+      ]
     }
   ],
   "nodes": [
     {
       "mesh": 0
+    },
+    {
+      "mesh": 1
+    },
+    {
+      "mesh": 2
     }
   ],
   "scene": 0,
   "scenes": [
     {
       "nodes": [
-        0
+        0,
+        1,
+        2
       ]
     }
   ]
