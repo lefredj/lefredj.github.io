@@ -15,8 +15,8 @@
       import * as THREE from 'three';
       import { MindARThree } from 'mindar-image-three';
       const mindarThree = new MindARThree({
-	container: document.querySelector("#container"),
-	imageTargetSrc: "https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.mind"
+	  container: document.querySelector("#container"),
+	  imageTargetSrc: "./targets.mind"
       });
       const {renderer, scene, camera} = mindarThree;
       const anchor = mindarThree.addAnchor(0);
@@ -25,23 +25,22 @@
       const plane = new THREE.Mesh( geometry, material );
       anchor.group.add(plane);
       const start = async() => {
-	await mindarThree.start();
-	renderer.setAnimationLoop(() => {
-	  renderer.render(scene, camera);
-	});
+	  await mindarThree.start();
+	  renderer.setAnimationLoop(() => {
+	      renderer.render(scene, camera);
+	  });
       }
-      const startButton = document.querySelector("#startButton");
-      startButton.addEventListener("click", () => {
-	start();
-      });
-      stopButton.addEventListener("click", () => {
-	mindarThree.stop();
-	mindarThree.renderer.setAnimationLoop(null);
-      });
+
+      window.onload = () => {
+	  document.body.requestFullscreen();
+	  start();
+      };
+
     </script>
     <style>
       body {
-	margin: 0;
+	  margin: 0;
+	  overflow: hidden;
       }
       #container {
 	width: 100vw;
@@ -49,19 +48,9 @@
 	position: relative;
 	overflow: hidden;
       }
-      #control {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 2;
-      }
     </style>
   </head>
   <body>
-    <div id="control">
-      <button id="startButton">Start</button>
-      <button id="stopButton">Stop</button>
-    </div>
     <div id="container">
     </div>
   </body>
