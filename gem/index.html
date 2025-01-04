@@ -62,9 +62,9 @@ polyhedrong.computeVertexNormals(); // Calculate normals for shading
 //   metalness: 0.5, // Fully metallic
 //   roughness: 0.2, // Low roughness for a shiny surface
       // });
-            const geometry = new THREE.TetrahedronGeometry(1);
+            const geometryp = new THREE.TetrahedronGeometry(1);
 
-const polyhedron = new THREE.Mesh(geometry, materialp);
+const polyhedron = new THREE.Mesh(geometryp, materialp);
       polyhedron.position.set(0,0,2)
 
       anchor.group.add(polyhedron);
