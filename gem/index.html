@@ -61,8 +61,10 @@ polyhedrong.computeVertexNormals(); // Calculate normals for shading
 //   color: 0xaaccff, // Base color (light gray)
 //   metalness: 0.5, // Fully metallic
 //   roughness: 0.2, // Low roughness for a shiny surface
-// });
-const polyhedron = new THREE.Mesh(polyhedrong, materialp);
+      // });
+            const geometry = new THREE.TetrahedronGeometry(1);
+
+const polyhedron = new THREE.Mesh(geometry, materialp);
       polyhedron.position.set(0,0,2)
 
       anchor.group.add(polyhedron);
@@ -71,7 +73,7 @@ const polyhedron = new THREE.Mesh(polyhedrong, materialp);
             function createSpotlight(color, position) {
 
           // Create a small sphere to represent the light source
-          const sphereGeometry = new THREE.SphereGeometry(0.2, 16, 16);
+          const sphereGeometry = new THREE.SphereGeometry(0.125, 16, 16);
           const sphereMaterial = new THREE.MeshPhysicalMaterial({
               color: 0xffffff,
               transmission: 1,//0.9, // Makes the material transparent
@@ -87,7 +89,7 @@ const polyhedron = new THREE.Mesh(polyhedrong, materialp);
           lightSphere.position.set(...position);
           anchor.group.add(lightSphere);
 
-          const sphereGeometry2 = new THREE.SphereGeometry(0.1, 16, 16);
+          const sphereGeometry2 = new THREE.SphereGeometry(0.06, 16, 16);
           const sphereMaterial2 = new THREE.MeshPhysicalMaterial({
               color: color,
 	      emissive:color,
@@ -106,7 +108,7 @@ const polyhedron = new THREE.Mesh(polyhedrong, materialp);
           anchor.group.add(spotlight);
           return spotlight;
       }
-      var d = 0.4
+      var d = 0.25
       for( var u = -2; u < 3; u ++ ) { 
       for( var v = -2; v < 3; v ++ ) { 
 	  createSpotlight(0xffeeff, [ u*d,v*d, 0]);
@@ -126,6 +128,9 @@ const polyhedron = new THREE.Mesh(polyhedrong, materialp);
       const start = async() => {
 	  await mindarThree.start();
 	  renderer.setAnimationLoop(() => {
+	      polyhedron.rotation.x += 0.01;
+              polyhedron.rotation.y += 0.01;
+
 	      renderer.render(scene, camera);
 	  });
       }
