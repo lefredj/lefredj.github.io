@@ -32,10 +32,87 @@
 	  thickness: 0.3, // Add refraction!
 
       });
+
+      
+      
+      const vertices = new Float32Array([
+	  0.2,0.2,0.1,
+	  0.2,-0.2,0.1,
+	  -0.2,-0.2,0.1,
+	  -0.2,0.2,0.1,
+	  0.2,0.2,-0.1,
+	  0.2,-0.2,-0.1,
+	  -0.2,-0.2,-0.1,
+	  -0.2,0.2,-0.1,
+	  0.3,0.4,0,
+	  0.3,-0.4,0,
+	  -0.3,-0.4,0,
+	  -0.3,0.4,0,
+	  0.4,0.3,0,
+	  0.4,-0.3,0,
+	  -0.4,-0.3,0,
+	  -0.4,0.3,0,
+   ]);
+
+      // Define faces using vertex indices (each face is a triangle)
+      const indices = [
+	  0,2,1,
+	  0,3,2,
+	  4,5,6,
+	  4,6,7,
+	  4,8,12,
+	  5,13,9,
+	  6,10,14,
+	  7,15,11,
+	  0,12,8,
+	  1,9,13,
+	  2,14,10,
+	  3,11,15,
+	  0,1,13,
+	  0,13,12,
+	  1,2,10,
+	  1,10,9,
+	  2,3,15,
+	  2,15,14,
+	  3,0,8,
+	  3,8,11,
+
+	  4,13,5,
+	  4,12,13,
+	  5,10,6,
+	  5,9,10,
+	  6,15,7,
+	  6,14,15,
+	  7,8,4,
+	  7,11,8
+
+      ];
+
+      
+      const color = 0x00ffaa
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+      geometry.setIndex(indices);
+      geometry.computeVertexNormals(); // Calculate normals for shading
+
+      const material = new THREE.MeshPhysicalMaterial({
+	  transmission: 1, // Add transparency
+	  metalness: 0.05,
+	  ior: 1.2,
+	  roughness: 0.,
+	  thickness: 0.2, // Add refraction!
+	  //color:0xff00ff,
+	  color:color,
+
+      });
       const polyhedron = new THREE.Mesh(geometry, material)
+      polyhedron.rotation.x = Math.PI/6;
       polyhedron.position.set(0,0,0.5)
       anchor.group.add(polyhedron);
 
+      const pointlight = new THREE.PointLight(color, 1);
+      pointlight.position.set(0,0,0.5);
+      anchor.group.add(pointlight);
 
       
       const light = new THREE.DirectionalLight(0xfff0dd, 1);
@@ -49,26 +126,26 @@
       bgMesh.position.set(0, 0, 0);
       anchor.group.add(bgMesh);
 
-      const cyl = new THREE.CylinderGeometry(0.3,0.3,0.1,32)
+      const cyl = new THREE.CylinderGeometry(0.6,0.6,0.05,64)
       const materialc = new THREE.MeshPhysicalMaterial({
 	  transmission: 1, // Add transparency
 	  metalness: 0.5,
 	  ior: 1.2,
 	  roughness: 0.2,
 	  thickness: 0.3, // Add refraction!
+	  color:0xffdddd,
 
       });
       const cylinder = new THREE.Mesh(cyl,materialc)
       cylinder.rotation.x = Math.PI/2
-      cylinder.position.set(0,0,0.05)
+      cylinder.position.set(0,0,0.025)
       anchor.group.add(cylinder)
 
 
       const start = async() => {
 	  await mindarThree.start();
 	  renderer.setAnimationLoop(() => {
-	      polyhedron.rotation.x += 0.01;
-              polyhedron.rotation.y += 0.01;
+	      polyhedron.rotation.y += 0.01;
 
 	      renderer.render(scene, camera);
 	  });
