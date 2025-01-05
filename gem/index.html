@@ -17,7 +17,9 @@
       import { MindARThree } from 'mindar-image-three';
       const mindarThree = new MindARThree({
 	  container: document.querySelector("#container"),
-	  imageTargetSrc: "./targets.mind"
+	  imageTargetSrc: "./targets.mind",
+          filterMinCF: 0.0001,
+          filterBeta: 0.001,
       });
       const {renderer, scene, camera} = mindarThree;
       const anchor = mindarThree.addAnchor(0);
@@ -119,11 +121,11 @@
       const cyl = new THREE.CylinderGeometry(0.3,0.3,0.05,64)
       const materialc = new THREE.MeshPhysicalMaterial({
 	  transmission: 1, // Add transparency
-	  metalness: 0.5,
+	  metalness: 0.4,
 	  ior: 1.2,
-	  roughness: 0.2,
-	  thickness: 0.3, // Add refraction!
-	  color:0xffdddd,
+	  roughness: 0.5,
+	  //thickness: 0.3, // Add refraction!
+	  //color:0xffdddd,
 
       });
       const cylinder = new THREE.Mesh(cyl,materialc)
