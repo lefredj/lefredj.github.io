@@ -21,110 +21,49 @@
       });
       const {renderer, scene, camera} = mindarThree;
       const anchor = mindarThree.addAnchor(0);
-      const geometry = new THREE.PlaneGeometry(1, 0.55);
-      const material = new THREE.MeshBasicMaterial( {color: 0x00ffff, transparent: true, opacity: 0.5} );
-      const plane = new THREE.Mesh( geometry, material );
-      anchor.group.add(plane);
 
-const vertices = new Float32Array([
-  0, 0, 1.175571, 1.051462, 0, 0.5257311, 0.3249197, 1, 0.5257311, -0.8506508,
-  0.618034, 0.5257311, -0.8506508, -0.618034, 0.5257311, 0.3249197, -1,
-  0.5257311, 0.8506508, 0.618034, -0.5257311, 0.8506508, -0.618034, -0.5257311,
-  -0.3249197, 1, -0.5257311, -1.051462, 0, -0.5257311, -0.3249197, -1,
-  -0.5257311, 0, 0, -1.175571,
-]);
+      const geometry = new THREE.IcosahedronGeometry(0.3, 0);
+      
+      const material = new THREE.MeshPhysicalMaterial({
+	  transmission: 1, // Add transparency
+	  metalness: 0.2,
+	  ior: 1.2,
+	  roughness: 0.2,
+	  thickness: 0.3, // Add refraction!
 
-// Define faces using vertex indices (each face is a triangle)
-const indices = [
-  0, 1, 2, 0, 2, 3, 0, 3, 4, 0, 4, 5, 0, 5, 1, 1, 5, 7, 1, 7, 6, 1, 6, 2, 2, 6,
-  8, 2, 8, 3, 3, 8, 9, 3, 9, 4, 4, 9, 10, 4, 10, 5, 5, 10, 7, 6, 7, 11, 6, 11,
-  8, 7, 10, 11, 8, 11, 9, 9, 11, 10,
-];
-//,[0,2,3,0,3,4,0,4,5,0,5,1,1,5,7,1,7,6,1,6,2,2,6,8,2,8,3,3,8,9,3,9,4,4,9,10,4,10,5,5,10,7,6,7,11,6,11,8,7,10,11,8,11,9,9,11,10]]
-const polyhedrong = new THREE.BufferGeometry();
-polyhedrong.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
-polyhedrong.setIndex(indices);
-polyhedrong.computeVertexNormals(); // Calculate normals for shading
-      // Create material and mesh
-
-      const materialp = new THREE.MeshPhysicalMaterial({
-          color: 0x88ccee,
-          roughness: 0.1,
-          metalness: 0.3,
-          transmission: 0.9, // Makes the material transparent
-          thickness: 0.1, // Thickness of the glass effect
-          clearcoat: 1.0, // Shiny clear coat
-          clearcoatRoughness: 0.1,
       });
-
-//       const materialp = new THREE.MeshStandardMaterial({
-//   color: 0xaaccff, // Base color (light gray)
-//   metalness: 0.5, // Fully metallic
-//   roughness: 0.2, // Low roughness for a shiny surface
-      // });
-            const geometryp = new THREE.TetrahedronGeometry(1);
-
-const polyhedron = new THREE.Mesh(geometryp, materialp);
+      const polyhedron = new THREE.Mesh(geometry, material)
       polyhedron.position.set(0,0,2)
-
       anchor.group.add(polyhedron);
 
 
-            function createSpotlight(color, position) {
-
-          // Create a small sphere to represent the light source
-          const sphereGeometry = new THREE.SphereGeometry(0.125, 16, 16);
-          const sphereMaterial = new THREE.MeshPhysicalMaterial({
-              color: 0xffffff,
-              transmission: 1,//0.9, // Makes the material transparent
-              thickness: 0.1, // Thickness of the glass effect
-       	      ior: 1.2,
-       	      chromaticAberration: 1,
-       	      //roughness: 0.5,
-       	      backside:true
-              // clearcoat: 1.0, // Shiny clear coat
-              // clearcoatRoughness: 0.5,
-          });
-          const lightSphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-          lightSphere.position.set(...position);
-          anchor.group.add(lightSphere);
-
-          const sphereGeometry2 = new THREE.SphereGeometry(0.06, 16, 16);
-          const sphereMaterial2 = new THREE.MeshPhysicalMaterial({
-              color: color,
-	      emissive:color,
-       	      roughness: 0.1,
-	      metalness:0,
-	      transmission: 1,
-                side: THREE.DoubleSide,
-          });
-          const lightSphere2 = new THREE.Mesh(sphereGeometry2, sphereMaterial2);
-          lightSphere2.position.set(...position);
-          anchor.group.add(lightSphere2);
-
-
-	  const spotlight = new THREE.SpotLight(color, 1);
-          spotlight.position.set(...position);
-          anchor.group.add(spotlight);
-          return spotlight;
-      }
-      var d = 0.25
-      for( var u = -2; u < 3; u ++ ) { 
-      for( var v = -2; v < 3; v ++ ) { 
-	  createSpotlight(0xffeeff, [ u*d,v*d, 0]);
-      }
-      }
-
       
-//       const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-// directionalLight.position.set(5, 5, 5);
-// directionalLight.castShadow = true; // Enable shadow casting
-//       anchor.group.add(directionalLight);
+      const light = new THREE.DirectionalLight(0xfff0dd, 1);
+      light.position.set(0, 5, 10);
+      anchor.group..add(light);
 
-      
-// const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Color and intensity
-//       anchor.group.add(ambientLight);
-      
+      const bgTexture = new THREE.TextureLoader().load("assets/texture.png");
+      const bgGeometry = new THREE.PlaneGeometry(2, 2);
+      const bgMaterial = new THREE.MeshBasicMaterial({ map: bgTexture });
+      const bgMesh = new THREE.Mesh(bgGeometry, bgMaterial);
+      bgMesh.position.set(0, 0, -1);
+      anchor.group.add(bgMesh);
+
+      const cyl = new THREE.CylinderGeometry(0.6,0.6,0.4,32)
+      const materialc = new THREE.MeshPhysicalMaterial({
+	  transmission: 1, // Add transparency
+	  metalness: 0.5,
+	  ior: 1.2,
+	  roughness: 0.2,
+	  thickness: 0.3, // Add refraction!
+
+      });
+      const cylinder = new THREE.Mesh(cyl,materialc)
+      cylinder.rotation.x = Math.PI/2
+      cylinder.position.set(0,0,0.5)
+      anchor.group.add(cylinder)
+
+
       const start = async() => {
 	  await mindarThree.start();
 	  renderer.setAnimationLoop(() => {
