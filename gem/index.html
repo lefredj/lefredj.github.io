@@ -22,18 +22,7 @@
       const {renderer, scene, camera} = mindarThree;
       const anchor = mindarThree.addAnchor(0);
 
-      const geometry = new THREE.IcosahedronGeometry(0.3, 0);
-      
-      const material = new THREE.MeshPhysicalMaterial({
-	  transmission: 1, // Add transparency
-	  metalness: 0.2,
-	  ior: 1.2,
-	  roughness: 0.2,
-	  thickness: 0.3, // Add refraction!
-
-      });
-
-      
+      //const geometry = new THREE.IcosahedronGeometry(0.3, 0);
       
       const vertices = new Float32Array([
 	  0.2,0.2,0.1,
@@ -107,6 +96,7 @@
       });
       const polyhedron = new THREE.Mesh(geometry, material)
       polyhedron.rotation.x = Math.PI/6;
+      polyhedron.scale.set(0.5,0.5,0.5);
       polyhedron.position.set(0,0,0.5)
       anchor.group.add(polyhedron);
 
