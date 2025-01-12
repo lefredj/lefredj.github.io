@@ -15,6 +15,7 @@
     <script type="module">
       import * as THREE from 'three';
       import { MindARThree } from 'mindar-image-three';
+      import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
       const mindarThree = new MindARThree({
 	  container: document.querySelector("#container"),
 	  imageTargetSrc: "./targets.mind",
@@ -96,11 +97,11 @@
 	  color:color,
 
       });
-      const polyhedron = new THREE.Mesh(geometry, material)
-      polyhedron.rotation.x = Math.PI/6;
-      polyhedron.scale.set(0.5,0.5,0.5);
-      polyhedron.position.set(0,0,0.5)
-      anchor.group.add(polyhedron);
+      // const polyhedron = new THREE.Mesh(geometry, material)
+      // polyhedron.rotation.x = Math.PI/6;
+      // polyhedron.scale.set(0.5,0.5,0.5);
+      // polyhedron.position.set(0,0,0.5)
+      // anchor.group.add(polyhedron);
 
       const pointlight = new THREE.PointLight(color, 1);
       pointlight.position.set(0,0,0.5);
@@ -133,12 +134,58 @@
       cylinder.position.set(0,0,0.025)
       anchor.group.add(cylinder)
 
+      const loader = new GLTFLoader();
+let model;
+// Load a glTF resource
+loader.load(
+	// resource URL
+	'assets/gem.gltf',
+	// called when the resource is loaded
+	function ( gltf ) {
+
+        model = gltf.scene;
+
+        // Change position
+        model.position.set(0, 0, 1);
+        model.scale.set(0.5, 0.5, 0.5); // Scale down by a factor of 0.5
+	   model.material = material
+        // // Change material and color
+        // model.traverse((child) => {
+        //   if (child.isMesh) {
+        //     //child.material = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+        //    child.material = material;
+        //   }
+        // });
+		anchor.group.add( model );
+
+		gltf.animations; // Array<THREE.AnimationClip>
+		gltf.scene; // THREE.Group
+		gltf.scenes; // Array<THREE.Group>
+		gltf.cameras; // Array<THREE.Camera>
+		gltf.asset; // Object
+
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened' );
+
+	}
+);
+
 
       const start = async() => {
 	  await mindarThree.start();
 	  renderer.setAnimationLoop(() => {
-	      polyhedron.rotation.y += 0.01;
-
+	      if( model ) {
+		  model.rotation.y += 0.01;
+	      }
 	      renderer.render(scene, camera);
 	  });
       }
