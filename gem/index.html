@@ -14,18 +14,35 @@
     }
     </script>
     <script type="module">
+      function getParams() {
+	  var idx = document.URL.indexOf('?');
+	  var params = new Array();
+	  if (idx != -1) {
+	      var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+	      for (var i=0; i<pairs.length; i++) {
+		  var nameVal = pairs[i].split('=');
+		  params[nameVal[0]] = nameVal[1];
+	      }
+	  }
+	  return params;
+      }
+      var params = getParams();
+      var gem = params["gem"]
+
       import * as THREE from 'three';
       import { MindARThree } from 'mindar-image-three';
       import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
       const mindarThree = new MindARThree({
 	  container: document.querySelector("#container"),
-	  imageTargetSrc: "./targets.mind",
+	  imageTargetSrc: "./assets/targets_"+gem+".mind",
           filterMinCF: 0.0001,
           filterBeta: 0.001,
       });
       const {renderer, scene, camera} = mindarThree;
       const anchor = mindarThree.addAnchor(0);
 
+
+      
       const light = new THREE.DirectionalLight(0xffff00, 1);
       light.position.set(-5, -5, 5);
       anchor.group.add(light);
@@ -76,7 +93,7 @@ let model;
 // Load a glTF resource
 loader.load(
 	// resource URL
-	'assets/gem.gltf',
+	'assets/gem_'+gem+'.gltf',
 	// called when the resource is loaded
 	function ( gltf ) {
 
@@ -105,6 +122,14 @@ loader.load(
 );
 
       
+      window.addEventListener('click', onclick, false);
+      //renderer.domElement.addEventListener("click", onclick, true);
+      function onclick(event) {
+          let newloc = "https://www.falj.net/";
+          window.location.replace(newloc);
+	  //alert('Clicked on the model!');
+	  //console.log('click')
+      }
 
 
       const start = async() => {
@@ -123,6 +148,8 @@ loader.load(
 	  start();
       };
 
+
+      
     </script>
     <style>
       body {
@@ -138,6 +165,7 @@ loader.load(
     </style>
   </head>
   <body>
+    
     <div id="container">
     </div>
   </body>
