@@ -4,9 +4,9 @@
       "bufferView": 0,
       "byteOffset": 0,
       "componentType": 5125,
-      "count": 1002,
+      "count": 4605,
       "max": [
-        185
+        841
       ],
       "min": [
         0
@@ -18,16 +18,16 @@
       "bufferView": 1,
       "byteOffset": 0,
       "componentType": 5126,
-      "count": 186,
+      "count": 842,
       "max": [
-        0.44707080721855164,
+        0.8201540112495422,
         1.0,
-        0.5945583581924438
+        0.7070361375808716
       ],
       "min": [
-        -0.8207400441169739,
-        -0.735003650188446,
-        -1.0
+        -0.8661562204360962,
+        -1.0,
+        -0.9598626494407654
       ],
       "normalized": false,
       "type": "VEC3"
@@ -40,20 +40,20 @@
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 4008,
+      "byteLength": 18420,
       "byteOffset": 0,
       "target": 34963
     },
     {
       "buffer": 0,
-      "byteLength": 2232,
-      "byteOffset": 4008,
+      "byteLength": 10104,
+      "byteOffset": 18420,
       "target": 34962
     }
   ],
   "buffers": [
     {
-      "byteLength": 6240,
+      "byteLength": 28524,
       "uri": "gem.bin"
     }
   ],
@@ -81,12 +81,12 @@
       "name": "TransparentMaterial",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.15870314143269315,
-          0.8579944799991472,
-          0.37819551241154026,
+          0.01190607308545899,
+          0.6690399820214483,
+          0.7702348766829598,
           0.5
         ],
-        "metallicFactor": 0.05,
+        "metallicFactor": 0.025,
         "roughnessFactor": 0.0
       }
     }
