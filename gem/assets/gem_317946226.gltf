@@ -1,0 +1,121 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5125,
+      "count": 114000,
+      "max": [
+        21999
+      ],
+      "min": [
+        0
+      ],
+      "normalized": false,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 22000,
+      "max": [
+        0.5232479572296143,
+        0.7961965799331665,
+        0.8732752799987793
+      ],
+      "min": [
+        -0.5131146907806396,
+        -0.711948812007904,
+        -0.7046077251434326
+      ],
+      "normalized": false,
+      "type": "VEC3"
+    }
+  ],
+  "asset": {
+    "generator": "pygltflib@v1.15.3",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 456000,
+      "byteOffset": 0,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 264000,
+      "byteOffset": 456000,
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 720000,
+      "uri": "gem_317946226.bin"
+    }
+  ],
+  "materials": [
+    {
+      "alphaCutoff": 0.5,
+      "alphaMode": "MASK",
+      "doubleSided": true,
+      "emissiveFactor": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "extensions": {
+        "KHR_materials_ior": {
+          "ior": 1.2
+        },
+        "KHR_materials_thickness": {
+          "thicknessFactor": 0.2
+        },
+        "KHR_materials_transmission": {
+          "transmissionFactor": 1.0
+        }
+      },
+      "name": "TransparentMaterial",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.47663251484403346,
+          0.8246142000793648,
+          0.4295065769825175,
+          0.5
+        ],
+        "metallicFactor": 0.025,
+        "roughnessFactor": 0.0
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 1
+          },
+          "indices": 0,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}
