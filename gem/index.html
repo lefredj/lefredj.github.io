@@ -73,9 +73,33 @@
       const bgGeometry = new THREE.PlaneGeometry(1, 1);
       const bgMaterial = new THREE.MeshBasicMaterial({ map: bgTexture });
       const bgMesh = new THREE.Mesh(bgGeometry, bgMaterial);
-      bgMesh.position.set(0, 0, 0);
+      bgMesh.position.set(0, 0, 0.3);
       anchor.group.add(bgMesh);
+      const bgGeometry1 = new THREE.PlaneGeometry(0.3, 1);
+      const bgMesh1 = new THREE.Mesh(bgGeometry1, bgMaterial);
+      bgMesh1.rotation.y = Math.PI/2
+      bgMesh1.position.set(0.5, 0, 0.15);
+      anchor.group.add(bgMesh1);
+      const bgGeometry2 = new THREE.PlaneGeometry(0.3, 1);
+      const bgMesh2 = new THREE.Mesh(bgGeometry2, bgMaterial);
+      bgMesh2.rotation.y = -Math.PI/2
+      bgMesh2.position.set(-0.5, 0, 0.15);
+      anchor.group.add(bgMesh2);
 
+      const bgGeometry3 = new THREE.PlaneGeometry(1,0.3);
+      const bgMesh3 = new THREE.Mesh(bgGeometry3, bgMaterial);
+      bgMesh3.rotation.x = -Math.PI/2
+      bgMesh3.position.set(0,0.5, 0.15);
+      anchor.group.add(bgMesh3);
+
+      const bgGeometry4 = new THREE.PlaneGeometry(1,0.3);
+      const bgMesh4 = new THREE.Mesh(bgGeometry4, bgMaterial);
+      bgMesh4.rotation.x = Math.PI/2
+      bgMesh4.position.set(0,-0.5, 0.15);
+      anchor.group.add(bgMesh4);
+
+      
+      
       // const cyl = new THREE.CylinderGeometry(0.3,0.3,0.05,64)
       // const materialc = new THREE.MeshPhysicalMaterial({
       // 	  transmission: 1, // Add transparency
