@@ -23,6 +23,8 @@
 		  var nameVal = pairs[i].split('=');
 		  params[nameVal[0]] = nameVal[1];
 	      }
+	  } else {
+	      params["gem"] = '234'
 	  }
 	  return params;
       }
@@ -42,32 +44,37 @@
       const anchor = mindarThree.addAnchor(0);
 
 
-      
-      const light = new THREE.DirectionalLight(0xffff00, 1);
-      light.position.set(-5, -5, 5);
-      anchor.group.add(light);
-      const light1 = new THREE.DirectionalLight(0xff00ff, 1);
-      light1.position.set(-5, 5, 5);
-      anchor.group.add(light1);
-      const light2 = new THREE.DirectionalLight(0x00ffff, 1);
-      light2.position.set(5, -5, 5);
-      anchor.group.add(light2);
-      const light3 = new THREE.DirectionalLight(0xffffff, 1);
-      light3.position.set(5, 5, 5);
-      anchor.group.add(light3);
+      const lights = new Array();
+      for( var u = 0; u < 20; u ++) {
+	  lights[u] = new THREE.DirectionalLight(new THREE.Color(0.5+0.5*Math.random(),0.5+0.5*Math.random(),0.5+0.5*Math.random()), 1);
+	  lights[u].position.set(5*Math.cos(2*Math.PI*u/20),5*Math.sin(2*Math.PI*u/20),2+0.5*Math.random())
+	  anchor.group.add(lights[u])
+      }
+      // const light = new THREE.DirectionalLight(0xffff00, 1);
+      // light.position.set(-5, -5, 5);
+      // anchor.group.add(light);
+      // const light1 = new THREE.DirectionalLight(0xff00ff, 1);
+      // light1.position.set(-5, 5, 5);
+      // anchor.group.add(light1);
+      // const light2 = new THREE.DirectionalLight(0x00ffff, 1);
+      // light2.position.set(5, -5, 5);
+      // anchor.group.add(light2);
+      // const light3 = new THREE.DirectionalLight(0xffffff, 1);
+      // light3.position.set(5, 5, 5);
+      // anchor.group.add(light3);
 
-      const light_ = new THREE.DirectionalLight(0xffff00, 1);
-      light_.position.set(0,5, 5);
-      anchor.group.add(light_);
-      const light1_ = new THREE.DirectionalLight(0xff00ff, 1);
-      light1_.position.set(5, 0, 5);
-      anchor.group.add(light1_);
-      const light2_ = new THREE.DirectionalLight(0x00ffff, 1);
-      light2_.position.set(-5, 0, 5);
-      anchor.group.add(light2_);
-      const light3_ = new THREE.DirectionalLight(0xffffff, 1);
-      light3_.position.set(0, -5, 5);
-      anchor.group.add(light3_);
+      // const light_ = new THREE.DirectionalLight(0xffff00, 1);
+      // light_.position.set(0,5, 5);
+      // anchor.group.add(light_);
+      // const light1_ = new THREE.DirectionalLight(0xff00ff, 1);
+      // light1_.position.set(5, 0, 5);
+      // anchor.group.add(light1_);
+      // const light2_ = new THREE.DirectionalLight(0x00ffff, 1);
+      // light2_.position.set(-5, 0, 5);
+      // anchor.group.add(light2_);
+      // const light3_ = new THREE.DirectionalLight(0xffffff, 1);
+      // light3_.position.set(0, -5, 5);
+      // anchor.group.add(light3_);
 
       const bgTexture = new THREE.TextureLoader().load("assets/texture.png");
       const bgGeometry = new THREE.PlaneGeometry(1, 1);
@@ -137,7 +144,7 @@ loader.load(
 	  renderer.setAnimationLoop(() => {
 	      if( model ) {
 		  //model.rotation.x += 0.001;
-		  model.rotation.y += 0.03;
+		  model.rotation.y += 0.02;
 	      }
 	      renderer.render(scene, camera);
 	  });
