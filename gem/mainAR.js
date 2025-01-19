@@ -37,7 +37,7 @@ anchor.group.add( light );
 const lights = new Array();
 var n = 20
 for( var u = 0; u < n; u ++) {
-    lights[u] = new THREE.DirectionalLight(new THREE.Color(Math.random(),Math.random(),Math.random()), 1);
+    lights[u] = new THREE.DirectionalLight(0xffffff,1)
     var theta = Math.PI*2*u/n
     var r = 2+10*Math.random()
     lights[u].position.set(r*Math.cos(2*Math.PI*u/n)*Math.sin(theta),
